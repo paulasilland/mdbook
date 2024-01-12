@@ -25,7 +25,7 @@ echo "Usuari: usuari created"
 echo -e "Usuari: usuari" >> scripts/temporal_passwd.txt</span>
 
 
-<br>A continuació mostrarà la contrasenya temporal i tambè l’afegirà al fitxer per a una futura consulta:
+<br>A continuació mostrarà la contrasenya temporal i també l’afegirà al fitxer per a una futura consulta:
 
 <span style="color: yellow;"><br>
 echo "Password created: contrasenya"<br>

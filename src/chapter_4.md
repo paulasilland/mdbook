@@ -7,3 +7,5 @@ Vam tenir que enllaçar el servidor Bacula amb el nostre servidor i en aquest, v
 Despres vam crear un "Job" que es el que s'executara cada setmana a la mateixa hora per a que realitze la copia de seguretat.  
 
 Com podem veure en aquesta imatge, aquestes son les copies de seguretat que s'han fet fins ara i com podem comprobar el sistema de Backup funciona a la perfecció.
+
+![4d40f632-4691-41c9-bc0a-f9d5796cc5e0](https://github.com/paulasilland/mdbook/assets/101247767/2ffcdcad-24b4-4df3-8ac6-53cf37e3ceca)

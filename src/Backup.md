@@ -1,4 +1,4 @@
-# 4. Backup
+# Backup
 
 Hem fet un backup del nostre servidor per a poder tenir una copia de seguretat semanal sempre disponible per a poder recuperar les dades en cas de que es perguin o es corrompi la informació del servidor.  
 Per a fer-ho, vam crear una maquina servidor amb una partició de 10gb per a poder utilitzar-la per a emmagatzemar les nostres copies de seguretat. Una vegada fet això, vam configurar un servidor Bacula per a que vagin fent les copies de seguretat.  

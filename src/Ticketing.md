@@ -1,4 +1,4 @@
-# 5. Ticketing
+# Ticketing
 
 Per fer el ticketing, hem decidit fer servir osTicket.
 

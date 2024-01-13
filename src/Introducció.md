@@ -1,4 +1,4 @@
-# 1. Projecte #01: Administració d’Infraestructura per a l’Assignatura de Tècniques de Computació
+# Projecte #01: Administració d’Infraestructura per a l’Assignatura de Tècniques de Computació
 
 
 <span style="color: yellow;">Descripció General del Projecte</span>  

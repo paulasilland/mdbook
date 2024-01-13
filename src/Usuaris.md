@@ -1,4 +1,4 @@
-# 3. Creació d'Usuaris
+# Creació d'Usuaris
 
 Per a crear els usuaris hem utilitzat un fitxer dit “create_users” el cual crearà els usuaris dits a un fitxer dit “users.txt” amb la seva contrasenya.
 

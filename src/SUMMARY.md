@@ -1,7 +1,7 @@
 # Summary
 
 - [Introducció](./Introducció.md)
-- [Chapter 2](./chapter_2.md)
+- [Infrastructura](./Infrastructura.md)
 - [Usuaris](./Usuaris.md)
 - [Backup](./Backup.md)
 - [Ticketing](./Ticketing.md)

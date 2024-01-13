@@ -8,7 +8,7 @@ Membres del grup:
 
 - Àlex Pellitero: configuració del jupyter i la creació d'usuaris, per l'accés als estudiants a un entorn web de Python utilitzant JupyterLab.
 - Isaac Brull: implementació del sistema de backup setmanal per assegurar la integritat. 
-- César Crespo: configuració del ticketing() per la gestió d'incidències.
+- César Crespo: configuració del ticketing per la gestió d'incidències.
 - Paula Silland: configuració del servidor web (tc.udl.cat) i del mdbook, juntament amb la documentació del projecte.
 
 

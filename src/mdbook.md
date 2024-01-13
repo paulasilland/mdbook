@@ -8,15 +8,13 @@ Teniem els següents objectius:
 - Fer una configuració segura del servidor web.
 - Fer un desplegament automatitzat del llibre mdbook.
 
-Vam instal.lar un servidor web apache com a servei web:
+Es va instal.lar apache, i es va activar i iniciar com a servei web:
 
 dnf install -y httpd  
 
-Activar i inciar el servei d'Apache:
-
 systemctl enable --now httpd  
 
-Fer un còpia de seguretat de la configuració d'Apache:
+Es va realitzar una còpia de seguretat de la configuració original d'Apache
 
 cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.original  
 
@@ -29,11 +27,9 @@ EOF
 
 # Configuració del tallafocs  
 
-Instal·lar el paquet firewalld:
+Es va instal·lar i activar el servei de firewalld, i es van afegir les regles necessàries.
 
 dnf install -y firewalld  
-
-Activarem i iniciarem el servei de firewalld:
 
 systemctl enable --now firewalld  
 
@@ -49,42 +45,30 @@ Es important que el nostre servidor web utilitzi un certificat SSL per a que les
 Crearem un directori per a guardar els certificats:
 
 mkdir /etc/httpd/ssl
-Generarem el certificat:
 
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/httpd/ssl/apache.key -out /etc/httpd/ssl/apache.crt  
+Es va generar i configurar un certificat SSL autofirmat per a l'ús intern. 
 
 Generating a RSA private key
-...
-Country Name (2 letter code) [XX]:ES
-State or Province Name (full name) []:Lleida
-Locality Name (eg, city) [Default City]:Lleida
-Organization Name (eg, company) [Default Company Ltd]:UDL
-Organizational Unit Name (eg, section) []:TC
-Common Name (eg, your name or your server's hostname) []:mdbook.tc.udl.cat
-Email Address []: tc@udl.cat
-Observeu que generem un certificat amb una durada de 365 dies. Utilitzem una clau RSA de 2048 bits i el guardem en el directori /etc/httpd/ssl.
+
+Es va configurar Apache per redirigir tot el tràfic de HTTP a HTTPS.
 
 Instal·larem el paquet mod_ssl per a que Apache pugui utilitzar el certificat:
 
 dnf install -y mod_ssl  
 
-Editar /etc/httpd/conf.d/ssl.conf i afegir el següent contingut:
-
-Comentar les linies següents i actualitzeu-les amb:  
+Vam editar /etc/httpd/conf.d/ssl.conf per afegir el següent contingut:
 
 SSLCertificateFile /etc/httpd/ssl/apache.crt
 SSLCertificateKeyFile /etc/httpd/ssl/apache.key  
 
-Reiniciarem el servei d'Apache:
+Reiniciar el servei d'Apache i obrirem el port 443 (https) al tallafocs :
 
 systemctl restart httpd  
-
-Obrirem el port 443 (https) al tallafocs:
 
 firewall-cmd --add-service=https --permanent
 firewall-cmd --reload  
 
-Revisar que el vostre servidor web funciona correctament amb el protocol https.
+I revisar que el servidor web funciona correctament amb el protocol https.
 
 
 Ens pot interessar que els nostres usuari sempre utilitzin el protocol https, configurarem apache per redirigir totes les peticions al port 80 al port 443. Per fer-ho editarem el fitxer /etc/httpd/conf.d/vhost.conf i afegirem el següent contingut:
@@ -96,25 +80,21 @@ Ens pot interessar que els nostres usuari sempre utilitzin el protocol https, co
 
 I comprovarem que les peticions al port 80 són redirigides al port 443.
 
-Instal·lació de mdbook i git  
+# Instal·lació de mdbook i git  
 
-Per instal·lar mdbook, primer necessitarem instal·lar el paquet rust:
+Per instal·lar mdbook, primer necessitarem instal·lar el paquet rust i el paquet git:
 
 dnf install -y rust cargo   
 
-Instal·larem el paquet git:
-
 dnf install -y git  
 
-Crearem un usuari especial per a mdbook  
+Crearem un usuari especial per a mdbook.  
 
 Aquest usuari tindrà permisos per actualitzar el llibre mdbook que desplegarem amb apache a través de git i github. Però no podrà fer cap altra cosa.
 
-Crearem un usuari amb el nom mdbook sense home directory:
+Crearem un usuari amb el nom mdbook sense home directory i una clau ssh per a l'usuari mdbook:
 
 useradd -m mdbook  
-
-Crearem una clau ssh per a l'usuari mdbook:
 
 su - mdbook  
 
@@ -165,12 +145,10 @@ Ara actualitzarem el nostre servidor web per servir el nostre llibre aprofitant 
 </VirtualHost>
 
 
-Desplegament automatitzat del llibre  
+# Desplegament automatitzat del llibre  
 
-Com el servidor es troba en una intranet, no podem utilitzar cap servei de CI/CD com github actions o gitlab CI. Tampoc podem utiltizar els webhooks de github per a que el servidor web es desplegui automàticament. La solució que us proposo es utilitzar un cronjob per a que cada dia es comprovi si hi ha hagut algun canvi en el repositori i en cas afirmatiu, es compili el llibre i es desplegui al servidor web.
+Utilitzarem un cronjob per a que cada dia es comprovi si hi ha hagut algun canvi en el repositori i en cas afirmatiu, es compili el llibre i es desplegui al servidor web.
 
-
-# Build mdBook
 mdbook build  
 
 Donarem permisos d'execució al fitxer:
@@ -180,8 +158,5 @@ chmod +x /home/mdbook/update.sh
 Crearem un cronjob per a que s'executi cada dia a les 00:00:
 
 crontab -e  
-
-I afegirem la següent línia:
-
 
 0 0 * * * /home/mdbook/update.sh

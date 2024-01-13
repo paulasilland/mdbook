@@ -11,7 +11,6 @@ Membres del grup:
 - César Crespo: configuració del ticketing per la gestió d'incidències.
 - Paula Silland: configuració del servidor web (tc.udl.cat) i del mdbook, juntament amb la documentació del projecte.
 
-  
-![DALL·E 2024-01-13 10 16 03 - A detailed infrastructure diagram for an educational course setup  The diagram includes several servers with labels and their connections_ 1  'course](https://github.com/paulasilland/mdbook/assets/101247767/9db9b3e3-03d1-4316-b92f-4535343d9495)
+  ![DALL·E 2024-01-13 11 11 15 - A detailed infrastructure diagram for an educational course setup  The diagram includes several servers with labels and their connections_ 1  'course](https://github.com/paulasilland/mdbook/assets/101247767/b6fa58ab-05af-4601-bddf-c02280cfe5c2)
 
 

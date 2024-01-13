@@ -4,7 +4,7 @@
 <span style="color: yellow;">Descripció General del Projecte</span>  
 Aquest projecte consisteix en la creació i gestió d'una infraestructura per a l'assignatura de Tècniques de Computació. El nostre objectiu és proporcionar un entorn robust i eficient per a l'ensenyament i l'aprenentatge de tècniques computacionals avançades.
 
-![DALL·E 2024-01-13 22 10 27 - Create a simple infrastructure diagram, similar to the provided example, showing the relationships between the following servers for an educational se](https://github.com/paulasilland/mdbook/assets/101247767/0ef3d145-c517-472f-8a4f-a894d13ba79e)
+![DALL·E 2024-01-13 22 12 36 - Create a simple infrastructure diagram, including an image of the University of Lleida (UDL) logo in the center, similar to the provided example  Incl](https://github.com/paulasilland/mdbook/assets/101247767/06667c95-479f-4052-959c-1a44d33abdce)
 
 
 

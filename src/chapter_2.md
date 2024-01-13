@@ -9,6 +9,8 @@ L'infraestructura està dissenyada per suportar els requeriments de l'assignatur
 Descripció de Cada Màquina i el Seu Rol:  
 - course.tc.udl.cat: Servidor per allotjar materials del curs.
 - tc.udl.cat: Servidor principal per a la gestió de l'assignatura.
-- mdbook.tc.udl.cat: Servidor dedicat per al mdbook amb lliçons i tutorials.
+- mdbook.tc.udl.cat: Servidor dedicat per al mdbook amb tutorials.
 - Jupyter: Servidor per a l'entorn de desenvolupament JupyterLab.  
 - Backup: Sistema per a la gestió de còpies de seguretat.
+- Ticketing: Sistema de gestió d’incidències i millores perquè els estudiants i el professor
+puguin reportar problemes.

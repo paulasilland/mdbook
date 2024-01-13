@@ -1,6 +1,6 @@
 # Projecte #01: Administració d’Infraestructura per a l’Assignatura de Tècniques de Computació
 
-![DALL·E 2024-01-13 10 16 03 - A detailed infrastructure diagram for an educational course setup  The diagram includes several servers with labels and their connections_ 1  'course](https://github.com/paulasilland/mdbook/assets/101247767/73a5d553-f3b8-44aa-b3d9-db369b50e44d)
+![DALL·E 2024-01-13 10 16 03 - A detailed infrastructure diagram for an educational course setup  The diagram includes several servers with labels and their connections_ 1  'course](https://github.com/paulasilland/mdbook/assets/101247767/39f68ff3-39d9-435c-990c-f28e890b142a)
 
 
 <span style="color: yellow;">Descripció General del Projecte</span>  

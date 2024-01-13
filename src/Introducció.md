@@ -4,8 +4,6 @@
 <span style="color: yellow;">Descripció General del Projecte</span>  
 Aquest projecte consisteix en la creació i gestió d'una infraestructura per a l'assignatura de Tècniques de Computació. El nostre objectiu és proporcionar un entorn robust i eficient per a l'ensenyament i l'aprenentatge de tècniques computacionals avançades.
 
-<img width="444" alt="Captura de pantalla 2024-01-13 220513" src="https://github.com/paulasilland/mdbook/assets/101247767/06667c95-479f-4052-959c-1a44d33abdce">
-
 <span style="color: yellow;">Objectius i Abast</span>    
 Els objectius principals inclouen:
 

@@ -11,7 +11,6 @@ Teniem els següents objectius:
 Es va instal.lar apache, i es va activar i iniciar com a servei web:
 
 dnf install -y httpd  
-
 systemctl enable --now httpd  
 
 Es va realitzar una còpia de seguretat de la configuració original d'Apache
@@ -25,12 +24,11 @@ cat << EOF > /var/www/html/index.html
 Hola món!
 EOF  
 
-# Configuració del tallafocs  
+<span style="color: yellow;">Configuració del tallafocs </span> 
 
 Es va instal·lar i activar el servei de firewalld, i es van afegir les regles necessàries.
 
 dnf install -y firewalld  
-
 systemctl enable --now firewalld  
 
 Afegirem el servei web al tallafocs:
@@ -39,7 +37,8 @@ firewall-cmd --add-service=http --permanent
 Recarregarem la configuració del tallafocs:
 
 
-Certificat SSL
+<span style="color: yellow;">Certificat SSL</span>  
+
 Es important que el nostre servidor web utilitzi un certificat SSL per a que les connexions siguin segures. En el nostre cas que treballem en una intranet, utilitzarem un certificat autofirmat.
 
 Crearem un directori per a guardar els certificats:
@@ -48,7 +47,6 @@ mkdir /etc/httpd/ssl
 
 Es va generar i configurar un certificat SSL autofirmat per a l'ús intern. 
 
-Generating a RSA private key
 
 Es va configurar Apache per redirigir tot el tràfic de HTTP a HTTPS.
 
@@ -61,7 +59,7 @@ Vam editar /etc/httpd/conf.d/ssl.conf per afegir el següent contingut:
 SSLCertificateFile /etc/httpd/ssl/apache.crt
 SSLCertificateKeyFile /etc/httpd/ssl/apache.key  
 
-Reiniciar el servei d'Apache i obrirem el port 443 (https) al tallafocs :
+Reiniciar el servei d'Apache i obrirem el port 443 (https) al tallafocs:
 
 systemctl restart httpd  
 
@@ -80,16 +78,14 @@ Ens pot interessar que els nostres usuari sempre utilitzin el protocol https, co
 
 I comprovarem que les peticions al port 80 són redirigides al port 443.
 
-# Instal·lació de mdbook i git  
+<span style="color: yellow;">Instal·lació de mdbook i git</span>
 
 Per instal·lar mdbook, primer necessitarem instal·lar el paquet rust i el paquet git:
 
 dnf install -y rust cargo   
-
 dnf install -y git  
 
 Crearem un usuari especial per a mdbook.  
-
 Aquest usuari tindrà permisos per actualitzar el llibre mdbook que desplegarem amb apache a través de git i github. Però no podrà fer cap altra cosa.
 
 Crearem un usuari amb el nom mdbook sense home directory i una clau ssh per a l'usuari mdbook:
@@ -111,16 +107,16 @@ chown mdbook:apache /mdbook-source
 Nota: Necessitem que l'owner sigui l'usuari encarregat de compilar el llibre i el grup sigui apache per a que el servidor web pugui accedir al directori.
 
 
-Instal·larem mdbook:
+<span style="color: yellow;">Instal·larem mdbook</span>
 
 cargo install --locked mdbook --vers 0.4.34  
 
-Afegireu el PATH de mdbook al PATH de l'usuari mdbook:
+Afegirem el PATH de mdbook al PATH de l'usuari mdbook:
 
 echo 'export PATH=$PATH:/home/mdbook/.cargo/bin'  >> /home/mdbook/.bashrc  
 source /home/mdbook/.bashrc  
 
-Generar el llibre:
+Generarem el llibre:
 
 cd /mdbook-source/mdbook<br>
 mdbook build  
@@ -145,7 +141,7 @@ Ara actualitzarem el nostre servidor web per servir el nostre llibre aprofitant 
 </VirtualHost>
 
 
-# Desplegament automatitzat del llibre  
+<span style="color: yellow;">Desplegament automatitzat del llibre</span> 
 
 Utilitzarem un cronjob per a que cada dia es comprovi si hi ha hagut algun canvi en el repositori i en cas afirmatiu, es compili el llibre i es desplegui al servidor web.
 
@@ -155,7 +151,7 @@ Donarem permisos d'execució al fitxer:
 
 chmod +x /home/mdbook/update.sh  
 
-Crearem un cronjob per a que s'executi cada dia a les 00:00:
+I crearem un cronjob per a que s'executi cada dia a les 00:00:
 
 crontab -e  
 

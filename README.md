@@ -10,7 +10,5 @@ Membres del grup:
 - Isaac Brull: implementació del sistema de backup setmanal per assegurar la integritat. 
 - César Crespo: configuració del ticketing per la gestió d'incidències.
 - Paula Silland: configuració del servidor web (tc.udl.cat) i del mdbook, juntament amb la documentació del projecte.
-![DALL·E 2024-01-13 22 12 36 - Create a simple infrastructure diagram, including an image of the University of Lleida (UDL) logo in the center, similar to the provided example  Incl](https://github.com/paulasilland/mdbook/assets/101247767/6f818492-17e0-4213-b25b-ac176fd847ac)
-
 
 
